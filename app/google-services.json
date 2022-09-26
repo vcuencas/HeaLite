@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "461934487946",
+    "project_id": "healite-e45b4",
+    "storage_bucket": "healite-e45b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461934487946:android:dc852f1d412b8a687d0073",
+        "android_client_info": {
+          "package_name": "com.example.healite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461934487946-vffnvdk3sagenrvg5hh71sbj03etvuqf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healite",
+            "certificate_hash": "13a24531b21dadee380edd8ec63dd8fe3c87fb59"
+          }
+        },
+        {
+          "client_id": "461934487946-7t8ael06vj5vttos0furp1iocro3qj2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOcqbpPf7HdDhRex_SQtGkm2HI5OdpJwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461934487946-7t8ael06vj5vttos0furp1iocro3qj2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
