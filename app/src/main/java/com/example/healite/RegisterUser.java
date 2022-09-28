@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
     private TextView banner, registerUser;
-    private EditText editTextFullName, editTextAge, editTextEmail, editTextPassword;
+    private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
@@ -40,13 +40,12 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         registerUser = (Button) findViewById(R.id.registerUser);
         registerUser.setOnClickListener(this);
 
-        editTextFullName = (EditText) findViewById(R.id.fullName);
-        editTextAge = (EditText) findViewById(R.id.age);
+        editTextFirstName = (EditText) findViewById(R.id.firstName);
+        editTextLastName = (EditText) findViewById(R.id.lastName);
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
     }
 
     @Override
@@ -64,12 +63,18 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     private void registerUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-        String fullName = editTextFullName.getText().toString().trim();
-        String age = editTextAge.getText().toString().trim();
+        String firstName = editTextFirstName.getText().toString().trim();
+        String lastName = editTextLastName.getText().toString().trim();
 
-        if (fullName.isEmpty()) {
-            editTextFullName.setError("Full name is required!");
-            editTextFullName.requestFocus();
+        if (firstName.isEmpty()) {
+            editTextFirstName.setError("First name is required!");
+            editTextFirstName.requestFocus();
+            return;
+        }
+
+        if (lastName.isEmpty()) {
+            editTextLastName.setError("Last name is required!");
+            editTextLastName.requestFocus();
             return;
         }
 
@@ -82,12 +87,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Please provide a valid email address!");
             editTextEmail.requestFocus();
-            return;
-        }
-
-        if (age.isEmpty()) {
-            editTextAge.setError("Age is required!");
-            editTextAge.requestFocus();
             return;
         }
 
@@ -104,12 +103,13 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         }
 
         progressBar.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                             User user = new User(fullName, age, email);
+                             User user = new User(firstName, lastName, email);
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

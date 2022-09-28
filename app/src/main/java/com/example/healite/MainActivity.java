@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -18,39 +26,32 @@ import java.util.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    //FirebaseFirestore firestore;
-
     private TextView register;
+    private EditText editTextEmail, editTextPassword;
+    private Button signIn;
+
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
 
-//        firestore = FirebaseFirestore.getInstance();
-//
-//        Map<String,String> users = new HashMap<String,String>();
-//
-//        users.put("firstName", "EASY");
-//        users.put("lastName", "TUTO");
-//        users.put("description", "Subscribe");
-//
-//        firestore.collection("users").add(users).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//            @Override
-//            public void onSuccess(DocumentReference documentReference) {
-//                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_LONG).show();
-//            }
-//        });
-    }
+        signIn = (Button) findViewById(R.id.signIn);
+        signIn.setOnClickListener(this);
 
+        editTextEmail = (EditText) findViewById(R.id.emailInput);
+        editTextPassword = (EditText) findViewById(R.id.passwordInput);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+    }
 
     @Override
     public void onClick(View v) {
@@ -58,6 +59,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.register:
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
+            case R.id.signIn:
+                userLogin();
+                break;
         }
+    }
+
+    private void userLogin() {
+        final String email = editTextEmail.getText().toString().trim();
+        final String password = editTextPassword.getText().toString().trim();
+
+        if (email.isEmpty()) {
+            editTextEmail.setError("Email is required!");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Please enter a valid email!");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            editTextPassword.setError("Password is required!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6) {
+            editTextPassword.setError("Minimum password length should be at least 6 characters!");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+
+                    //redirect to user profile
+                    startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                } else {
+                    Toast.makeText(MainActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
     }
 }

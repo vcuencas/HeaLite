@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/vcs04/AndroidStudioProjects/HeaLite/app/src/main/res/layout/activity_main.xml" value="0.3183876811594203" />
-        <entry key="..\:/Users/vcs04/AndroidStudioProjects/HeaLite/app/src/main/res/layout/activity_register_user.xml" value="0.3671875" />
+        <entry key="..\:/Users/vcs04/AndroidStudioProjects/HeaLite/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/vcs04/AndroidStudioProjects/HeaLite/app/src/main/res/layout/activity_register_user.xml" value="0.33" />
       </map>
     </option>
   </component>
