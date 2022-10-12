@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,9 +27,8 @@ import java.util.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView register;
     private EditText editTextEmail, editTextPassword;
-    private Button signIn;
+    private Button signIn, register, forgotPassword;
 
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
@@ -40,27 +40,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
-        register = (TextView) findViewById(R.id.register);
+        register = (Button) findViewById(R.id.signUp);
         register.setOnClickListener(this);
 
         signIn = (Button) findViewById(R.id.signIn);
         signIn.setOnClickListener(this);
 
+        forgotPassword = (Button) findViewById(R.id.forgotPassword);
+        forgotPassword.setOnClickListener(this);
+
         editTextEmail = (EditText) findViewById(R.id.emailInput);
         editTextPassword = (EditText) findViewById(R.id.passwordInput);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.register:
+            case R.id.signUp:
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
             case R.id.signIn:
                 userLogin();
+                break;
+            case R.id.forgotPassword:
+                startActivity(new Intent(this, ForgotPassword.class));
                 break;
         }
     }
@@ -100,7 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-
+//                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                    if (user != null) {
+//                        user.updateProfile({displayName}: firstName});
                     //redirect to user profile
                     startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 } else {

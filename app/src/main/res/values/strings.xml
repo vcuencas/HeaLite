@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HeaLite</string>
+    <string name="insert_email_address">Insert Email Address</string>
+    <string name="recover_password">Recover Password</string>
 </resources>
