@@ -2,4 +2,8 @@
     <string name="app_name">HeaLite</string>
     <string name="insert_email_address">Insert Email Address</string>
     <string name="recover_password">Recover Password</string>
+    <string name="Settings">Settings</string>
+    <string name="Profile">Profile</string>
+    <string name="Activity">User Activity</string>
+    <string name="log_out">Log out</string>
 </resources>

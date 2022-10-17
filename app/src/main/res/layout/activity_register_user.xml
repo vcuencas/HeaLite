@@ -120,5 +120,21 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
+    <TextView
+        android:id="@+id/BackToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="187dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="55dp"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:text="Already have an account? Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerUser" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

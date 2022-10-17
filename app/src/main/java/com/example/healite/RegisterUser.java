@@ -1,30 +1,20 @@
 package com.example.healite;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView banner, registerUser;
+    private TextView banner, registerUser, login;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
 
@@ -37,46 +27,38 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
-        banner = (TextView) findViewById(R.id.banner);
+        banner = findViewById(R.id.banner);
         banner.setOnClickListener(this);
 
-        registerUser = (Button) findViewById(R.id.registerUser);
+        registerUser = findViewById(R.id.registerUser);
         registerUser.setOnClickListener(this);
 
-        editTextFirstName = (EditText) findViewById(R.id.firstName);
-        editTextLastName = (EditText) findViewById(R.id.lastName);
-        editTextEmail = (EditText) findViewById(R.id.email);
-        editTextPassword = (EditText) findViewById(R.id.password);
+        login = findViewById(R.id.BackToLogin);
+        login.setOnClickListener(this);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        editTextFirstName = findViewById(R.id.firstName);
+        editTextLastName = findViewById(R.id.lastName);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.password);
+
+        progressBar = findViewById(R.id.progressBar);
     }
 
+    // this function handles the clicking of buttons
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.banner:
+            case R.id.BackToLogin:
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.registerUser:
                 registerUser();
-                //getUserProfile();
                 break;
         }
     }
 
-//    private void getUserProfile() {
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//           String displayName = user.getDisplayName();
-//
-//           for (UserInfo userInfo : user.getProviderData()) {
-//               if (displayName == null && userInfo.getDisplayName() != null) {
-//                   displayName = userInfo.getDisplayName();
-//               }
-//           }
-//        }
-//    }
-
+    // this function registers the user and adds it into the database
     private void registerUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
