@@ -2,18 +2,21 @@ package com.example.healite;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,76 +25,61 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 public class ProfileActivity extends AppCompatActivity {
 
-    //private Button logout;
-    private TextView welcomeMessage;
-    private FirebaseUser user;
-    private DatabaseReference reference;
-    private String userID;
-    //private Toolbar toolbar;
+    private TextView title;
+    private ImageView rightIcon;
+    BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //ImageView leftIcon = findViewById(R.id.left_icon);
-        ImageView rightIcon = findViewById(R.id.right_icon);
-        TextView title = findViewById(R.id.toolbar_title);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        welcomeMessage = (TextView) findViewById(R.id.welcome);
+        rightIcon = findViewById(R.id.right_icon);
+        title = findViewById(R.id.toolbar_title);
+        navigationView = findViewById(R.id.bottom_navigation);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("ExistingUsers");
-        userID = user.getUid();
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomeFragment()).commit();
+        navigationView.setSelectedItemId(R.id.nav_home);
+
+        // for selecting the different menu options in the bottom navigation bar.
+        navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.nav_calendar:
+                        fragment = new CalendarFragment();
+                        break;
+                    case R.id.nav_events:
+                        fragment = new EventsFragment();
+                        break;
+                    case R.id.nav_recommendation:
+                        fragment = new RecommendationFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.body_container,fragment).commit();
+                return true;
+            }
+        });
 
 
-//        leftIcon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               Toast.makeText(ProfileActivity.this, "You clicked left icon", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
+        // when the three lines menu is clicked.
         rightIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showMenu(v);
-                //Toast.makeText(ProfileActivity.this, "You clicked right icon", Toast.LENGTH_SHORT).show();
             }
         });
 
         title.setText("");
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseAuth.getInstance().signOut();
-//                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-//            }
-//        });
-
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Users userProfile = snapshot.getValue(Users.class);
-
-                if (userProfile != null) {
-                    String firstName = userProfile.firstName;
-                    String lastName = userProfile.lastName;
-                    String email = userProfile.email;
-
-                    welcomeMessage.setText("Welcome, " + firstName + "!");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ProfileActivity.this, "Something wrong happened!", Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 

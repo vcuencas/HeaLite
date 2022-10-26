@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/nav_calendar"
+        android:title="@string/calendar"
+        android:icon="@drawable/ic_calendar_month"/>
+    <item
+        android:id="@+id/nav_events"
+        android:title="@string/upcoming_events"
+        android:icon="@drawable/ic_event_available"/>
+    <item
+        android:id="@+id/nav_recommendation"
+        android:title="@string/recommendations"
+        android:icon="@drawable/ic_explore"/>
+
+</menu>
