@@ -6,6 +6,8 @@
     android:background="@color/teal_200"
     tools:context=".RecommendationFragment">
 
+    <include layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/recomm_message"
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.example.healite;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +29,7 @@ public class HomeFragment extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-
+    private FloatingActionButton addNoteButn;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         welcomeMessage = view.findViewById(R.id.welcomeMessage);
+        addNoteButn = view.findViewById(R.id.addButton);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("ExistingUsers");
@@ -72,6 +75,9 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "Something wrong happened!", Toast.LENGTH_LONG).show();
             }
         });
+
+        // when clicking the add note button
+        addNoteButn.setOnClickListener((v) -> startActivity(new Intent(getActivity(), JournalEntryActivity.class)));
 
     }
 }

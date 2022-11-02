@@ -6,6 +6,8 @@
     android:background="@color/teal_200"
     tools:context=".EventsFragment">
 
+    <include layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/events_message"
         android:layout_width="wrap_content"
