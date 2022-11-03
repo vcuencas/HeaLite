@@ -1,4 +1,4 @@
-package com.example.healite;
+package com.example.healite.Model;
 
 public class Users {
 

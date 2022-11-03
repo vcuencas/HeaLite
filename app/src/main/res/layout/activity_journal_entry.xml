@@ -41,4 +41,47 @@
         android:background="?attr/selectableItemBackgroundBorderless" />
     />
 
+    <EditText
+        android:id="@+id/entrytitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Entry Title"
+        android:inputType="text"
+        android:textSize="24sp"
+        android:layout_marginTop="135dp"/>
+
+    <EditText
+        android:id="@+id/generalEntry"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/entrytitle"
+        android:layout_marginTop="70dp"
+        android:ems="10"
+        android:hint="@string/general"
+        android:inputType="text"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/positiveEntry"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/generalEntry"
+        android:layout_marginTop="130dp"
+        android:ems="10"
+        android:hint="@string/positive_note"
+        android:inputType="text"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/notSoPositiveEntry"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/positiveEntry"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:hint="@string/not_so_positive_note"
+        android:inputType="text"
+        android:textSize="24sp" />
+
 </RelativeLayout>

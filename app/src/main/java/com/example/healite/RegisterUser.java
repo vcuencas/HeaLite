@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.healite.Model.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,6 +56,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.registerUser:
                 registerUser();
+                //startActivity(new Intent(this, QuestionnaireActivity.class));
                 break;
         }
     }
