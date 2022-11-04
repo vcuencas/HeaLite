@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.signIn:
                 userLogin();
+                startActivity((new Intent(this, QuestionnaireActivity.class)));
                 break;
             case R.id.forgotPassword:
                 startActivity(new Intent(this, ForgotPassword.class));
