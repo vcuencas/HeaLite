@@ -1,16 +1,14 @@
-package com.example.healite;
+package com.example.healite.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class JournalEntry {
 
     public String title, general, positive, notSoPositive;
-    public Date dayMonthYear;
-    public JournalEntry() {
+    public String dayMonthYear;
 
-    }
-
-    public JournalEntry(String title, Date dayMonthYear, String general, String positive, String notSoPositive) {
+    public JournalEntry(String title, String dayMonthYear, String general, String positive, String notSoPositive) {
         this.title = title;
         this.dayMonthYear = dayMonthYear;
         this.general = general;

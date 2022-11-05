@@ -16,4 +16,7 @@
     <string name="add_new_journal_entry">Add New Journal Entry:</string>
     <string name="add_a_new_journal_entry">Add Journal Entry</string>
     <string name="play">Play</string>
+    <string name="general">General</string>
+    <string name="positive_note">Positive Note</string>
+    <string name="not_so_positive_note">Not So Positive Note</string>
 </resources>
