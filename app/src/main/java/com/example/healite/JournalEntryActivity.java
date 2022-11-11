@@ -3,11 +3,11 @@ package com.example.healite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,16 +15,13 @@ import com.example.healite.Model.JournalEntry;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.Calendar;
-import java.util.Date;
 
 public class JournalEntryActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText title, generalEntry, positiveEntry, notSoPositiveEntry;
+    private EditText editTextGeneralEntry;
+    private int day = 0, mood = 0;
     private ImageButton checkMark;
 
     @Override
@@ -32,10 +29,7 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal_entry);
 
-        title = findViewById(R.id.entrytitle);
-        generalEntry = findViewById(R.id.generalEntry);
-        positiveEntry = findViewById(R.id.positiveEntry);
-        notSoPositiveEntry = findViewById(R.id.notSoPositiveEntry);
+        editTextGeneralEntry = findViewById(R.id.generalEntry);
 
         checkMark = findViewById(R.id.save_note_btn);
         checkMark.setOnClickListener(this);
@@ -49,11 +43,62 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton)view).isChecked();
+
+        //Check which radio button from DayRate was clicked
+        switch(view.getId()) {
+            case R.id.radioButton1:
+                if (checked)
+                    day = 1;
+                break;
+            case R.id.radioButton2:
+                if (checked)
+                    day = 2;
+                break;
+            case R.id.radioButton3:
+                if (checked)
+                    day = 3;
+                break;
+            case R.id.radioButton4:
+                if (checked)
+                    day = 4;
+                    break;
+            case R.id.radioButton5:
+                if (checked)
+                    day = 5;
+                break;
+        }
+        //Check which radio button from MoodRate was clicked
+        switch(view.getId()) {
+            case R.id.radioButton6:
+                if (checked)
+                    mood = 1;
+                    break;
+            case R.id.radioButton7:
+                if (checked)
+                    mood = 2;
+                    break;
+            case R.id.radioButton8:
+                if (checked)
+                    mood = 3;
+                    break;
+            case R.id.radioButton9:
+                if (checked)
+                    mood = 4;
+                    break;
+            case R.id.radioButton10:
+                if (checked)
+                    mood = 5;
+                    break;
+        }
+    }
     private void saveJournalEntry() {
-        String noteTitle = title.getText().toString().trim();
-        String noteGeneral = generalEntry.getText().toString().trim();
-        String notePositive = positiveEntry.getText().toString().trim();
-        String noteNotPositive = notSoPositiveEntry.getText().toString().trim();
+        //String noteTitle = title.getText().toString().trim();
+        String noteGeneral = editTextGeneralEntry.getText().toString().trim();
+        //int moodRate =
+
         String dateString = "";
         //Date noteDate = null;
 
@@ -62,8 +107,8 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
 
         // noteTitle, notePositive and noteNotPositive can be empty/optional entries.
         if (noteGeneral.isEmpty()) {
-            generalEntry.setError("General entry cannot be empty");
-            generalEntry.requestFocus();
+            editTextGeneralEntry.setError("General entry cannot be empty");
+            editTextGeneralEntry.requestFocus();
         }
 
         try {
@@ -78,10 +123,10 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
         //dateFormat.format(noteDate);
 
         // create Journal Entry object
-        JournalEntry newNote = new JournalEntry(noteTitle, dateString, noteGeneral, notePositive, noteNotPositive);
+        JournalEntry newNote = new JournalEntry(dateString, day, mood, noteGeneral);
 
         // add to firebase database
-        FirebaseDatabase.getInstance().getReference("Journal Entry")
+        FirebaseDatabase.getInstance().getReference("Entry Journal")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push()
                 .setValue(newNote).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

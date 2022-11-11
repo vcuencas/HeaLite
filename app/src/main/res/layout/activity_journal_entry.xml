@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".JournalEntryActivity">
 
     <include layout="@layout/toolbar" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/page_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="75dp"
-            android:text="@string/add_new_journal_entry"
-            android:textColor="@color/black"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="75dp"
+        android:text="@string/add_new_journal_entry"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:layout_width="100dp"
@@ -41,47 +33,144 @@
         android:background="?attr/selectableItemBackgroundBorderless" />
     />
 
-    <EditText
-        android:id="@+id/entrytitle"
+    <TextView
+        android:id="@+id/rateyourdaytext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Entry Title"
-        android:inputType="text"
+        android:layout_marginTop="170dp"
+        android:text="How was your day today"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="20dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="1 (Terrible)" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="130dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="2" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="onRadioButtonClicked"
+        android:text="3" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_alignStart="@+id/radioButton3"
+        android:layout_marginStart="50dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="4" />
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_alignStart="@+id/radioButton4"
+        android:layout_marginStart="50dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="5 (Amazing)" />
+
+    <TextView
+        android:id="@+id/rateyourdmoodtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radioButton5"
+        android:layout_marginTop="60dp"
+        android:text="How was your mood"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rateyourdmoodtext"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="1 (Terrible)" />
+
+    <RadioButton
+        android:id="@+id/radioButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rateyourdmoodtext"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="130dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="2" />
+
+    <RadioButton
+        android:id="@+id/radioButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rateyourdmoodtext"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="onRadioButtonClicked"
+        android:text="3" />
+
+    <RadioButton
+        android:id="@+id/radioButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rateyourdmoodtext"
+        android:layout_marginTop="60dp"
+        android:layout_alignStart="@+id/radioButton8"
+        android:layout_marginStart="50dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="4" />
+
+    <RadioButton
+        android:id="@+id/radioButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rateyourdmoodtext"
+        android:layout_marginTop="60dp"
+        android:layout_alignStart="@+id/radioButton9"
+        android:layout_marginStart="50dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="5 (Amazing)" />
+
+    <TextView
+        android:id="@+id/pagetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tell us about your day:"
+        android:layout_alignTop="@id/radioButton10"
         android:textSize="24sp"
-        android:layout_marginTop="135dp"/>
+        android:textColor="@color/black"
+        android:layout_marginTop="70dp"/>
 
     <EditText
         android:id="@+id/generalEntry"
         android:layout_width="400dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@id/entrytitle"
-        android:layout_marginTop="70dp"
+        android:layout_alignTop="@id/pagetitle"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/general"
+        android:hint="Type here"
         android:inputType="text"
         android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/positiveEntry"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_alignTop="@id/generalEntry"
-        android:layout_marginTop="130dp"
-        android:ems="10"
-        android:hint="@string/positive_note"
-        android:inputType="text"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/notSoPositiveEntry"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_alignTop="@id/positiveEntry"
-        android:layout_marginTop="140dp"
-        android:ems="10"
-        android:hint="@string/not_so_positive_note"
-        android:inputType="text"
-        android:textSize="24sp" />
 
 </RelativeLayout>
