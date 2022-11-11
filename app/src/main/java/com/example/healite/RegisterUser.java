@@ -56,7 +56,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.registerUser:
                 registerUser();
-                startActivity(new Intent(this, QuestionnaireActivity.class));
+                startActivity(new Intent(this, PreSignUp.class));
                 break;
         }
     }
