@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,29 +23,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PreSignUp extends Fragment {
+public class PreSignUp extends AppCompatActivity implements View.OnClickListener{
 
     private TextView text;
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-    private FloatingActionButton okButton;
+    private Button okButton;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_pre_sign_up, container, false);
-        return view;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pre_sign_up);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-//        setContentView(R.layout.activity_pre_sign_up);
+        text = findViewById(R.id.preSignUp);
+        okButton = findViewById(R.id.okButton);
 
-        text = view.findViewById(R.id.preSignUp);
-        okButton = view.findViewById(R.id.okButton);
+        okButton.setOnClickListener(this);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("ExistingUsers");
@@ -58,18 +53,22 @@ public class PreSignUp extends Fragment {
 
                 if (userProfile != null) {
                     String firstName = userProfile.firstName;
+                    String message = "Thank you for signing up, " + firstName + "!\nPlease take a few minutes to answer the following questionnaire.";
 
-                    text.setText("Thank you for signing up, " + firstName + "! Please take a few minutes to answer the following questionnaire.");
+                    text.setText(message);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getActivity(), "Something wrong happened!", Toast.LENGTH_LONG).show();
+                Toast.makeText(PreSignUp.this, "Something wrong happened!", Toast.LENGTH_LONG).show();
             }
         });
+    }
 
-        // when clicking the add note button
-        okButton.setOnClickListener((v) -> startActivity(new Intent(getActivity(), QuestionnaireActivity.class)));
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.okButton) {
+            startActivity(new Intent(this, QuestionnaireActivity.class));
+        }
     }
 }
