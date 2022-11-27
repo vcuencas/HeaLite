@@ -1,30 +1,31 @@
 package com.example.healite.Model;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 public class JournalEntry {
 
-    public String title, general, positive, notSoPositive;
-    public String dayMonthYear;
+    private String general;
+    private String todaydate;
+    private int dayRate;
+    private int moodRate;
 
-    public JournalEntry(String title, String dayMonthYear, String general, String positive, String notSoPositive) {
-        this.title = title;
-        this.dayMonthYear = dayMonthYear;
+    public JournalEntry(String todaydate, int dayRate, int moodRate, String general) {
+        this.todaydate = todaydate;
+        this.dayRate = dayRate;
+        this.moodRate = moodRate;
         this.general = general;
-        this.positive = positive;
-        this.notSoPositive = notSoPositive;
     }
 
-    public String getGeneral(Date dayMonthYear) {
+    public String getTodayDate() { return todaydate; }
+
+    public int getMoodRate() { return moodRate; }
+
+    public int getDayRate() {
+        return dayRate;
+    }
+
+    public String getGeneral() {
         return general;
-    }
-
-    public String getPositive(Date dayMonthYear) {
-        return positive;
-    }
-
-    public String getNotSoPositive(Date dayMonthYear) {
-        return notSoPositive;
     }
 }
