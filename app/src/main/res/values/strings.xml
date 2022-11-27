@@ -20,4 +20,6 @@
     <string name="positive_note">Positive Note</string>
     <string name="not_so_positive_note">Not So Positive Note</string>
     <string name="ok">OK</string>
+    <string name="fillQuestionnaire">Please take a few moments to fill out the following questionnaire.</string>
+    <string name="continueBtn">Continue</string>
 </resources>

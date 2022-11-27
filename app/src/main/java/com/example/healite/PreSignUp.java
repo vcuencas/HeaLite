@@ -53,9 +53,11 @@ public class PreSignUp extends AppCompatActivity implements View.OnClickListener
 
                 if (userProfile != null) {
                     String firstName = userProfile.firstName;
-                    String message = "Thank you for signing up, " + firstName + "!\nPlease take a few minutes to answer the following questionnaire.";
+//                    String message = ;
 
-                    text.setText(message);
+//                    + "!\n"
+
+//                    text.setText("Thank you for signing up. \nPlease take a few minutes to answer the following questionnaire.");
                 }
             }
             @Override
