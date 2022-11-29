@@ -14,6 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healite.Model.Questionnaire;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,7 +89,8 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(ProfileActivity.this, "User Profile selected", Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.user_settings:
-                        Toast.makeText(ProfileActivity.this, "User Settings selected", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ProfileActivity.this, QuestionnaireActivity.class));
+                        Toast.makeText(ProfileActivity.this, "User Questionnaire selected", Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.user_activity:
                         Toast.makeText(ProfileActivity.this, "User Activity selected", Toast.LENGTH_LONG).show();
