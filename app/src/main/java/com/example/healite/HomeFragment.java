@@ -64,8 +64,8 @@ public class HomeFragment extends Fragment {
 
                 if (userProfile != null) {
                     String firstName = userProfile.firstName;
-                    String lastName = userProfile.lastName;
-                    String email = userProfile.email;
+//                    String lastName = userProfile.lastName;
+//                    String email = userProfile.email;
 
                     welcomeMessage.setText("Welcome, " + firstName + "!");
                 }

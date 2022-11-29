@@ -2,6 +2,7 @@ package com.example.healite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +15,12 @@ import android.widget.Toast;
 import com.example.healite.Model.JournalEntry;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.type.DateTime;
 
 import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 
 public class JournalEntryActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,7 +42,11 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.save_note_btn) {
-            saveJournalEntry();
+            try {
+                saveJournalEntry();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             startActivity(new Intent(this, ProfileActivity.class));
         }
     }
@@ -94,16 +102,21 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
                     break;
         }
     }
-    private void saveJournalEntry() {
+    @SuppressLint("SimpleDateFormat")
+    private void saveJournalEntry() throws ParseException {
         //String noteTitle = title.getText().toString().trim();
         String noteGeneral = editTextGeneralEntry.getText().toString().trim();
         //int moodRate =
 
         String dateString = "";
-        //Date noteDate = null;
+        //Date noteDate;
+//        LocalDate noteDate = null;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            noteDate = LocalDate.now();
+//        }
 
-        Calendar calendar;
-        SimpleDateFormat simpleDateFormat;
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
         // noteTitle, notePositive and noteNotPositive can be empty/optional entries.
         if (noteGeneral.isEmpty()) {
@@ -111,19 +124,21 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
             editTextGeneralEntry.requestFocus();
         }
 
-        try {
-            // date the user is creating note
+//        try {
+//            // date the user is creating note
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
+
             dateString = simpleDateFormat.format(calendar.getTime());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+            Date noteDate = simpleDateFormat.parse(dateString);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         //dateFormat.format(noteDate);
 
         // create Journal Entry object
-        JournalEntry newNote = new JournalEntry(dateString, day, mood, noteGeneral);
+        JournalEntry newNote = new JournalEntry(noteDate, day, mood, noteGeneral);
 
         // add to firebase database
         FirebaseDatabase.getInstance().getReference("Entry Journal")
