@@ -95,12 +95,9 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
         }
     }
     private void saveJournalEntry() {
-        //String noteTitle = title.getText().toString().trim();
         String noteGeneral = editTextGeneralEntry.getText().toString().trim();
-        //int moodRate =
 
         String dateString = "";
-        //Date noteDate = null;
 
         Calendar calendar;
         SimpleDateFormat simpleDateFormat;
@@ -119,8 +116,6 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //dateFormat.format(noteDate);
 
         // create Journal Entry object
         JournalEntry newNote = new JournalEntry(dateString, day, mood, noteGeneral);

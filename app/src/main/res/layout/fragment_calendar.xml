@@ -19,10 +19,39 @@
         android:id="@+id/dateSelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="20dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView_moodRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="475dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView_dayRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="495dp"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView_general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="515dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+
 
 </FrameLayout>
