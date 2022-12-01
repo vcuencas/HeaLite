@@ -93,8 +93,21 @@ public class CalendarFragment extends Fragment {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                date = (month + 1) + "-" + dayOfMonth + "-" + year;
-                dateSelected.setText(date);
+                if (dayOfMonth < 10) {
+                    String correctedString = "";
+                    String dateString = String.valueOf(dayOfMonth);
+                    correctedString = "0" + dateString;
+
+                    date = (month + 1) + "-" + correctedString + "-" + year;
+                    dateSelected.setText(date);
+                } else {
+                    date = (month + 1) + "-" + dayOfMonth + "-" + year;
+                    dateSelected.setText(date);
+                }
+
+                dayString = "";
+                moodString = "";
+                generalString = "";
 
                 for (JournalEntry currentNote : notesList) {
                     if (currentNote.getTodayDate().compareTo(date) == 0) {
@@ -103,7 +116,7 @@ public class CalendarFragment extends Fragment {
                         generalString = "Description: " + currentNote.getGeneral();
                     }
                 }
-
+                
                 dayRate.setText(dayString);
                 moodRate.setText(moodString);
                 description.setText(generalString);
