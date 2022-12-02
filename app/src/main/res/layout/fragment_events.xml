@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@drawable/background18"
     tools:context=".EventsFragment">
 
     <include layout="@layout/toolbar" />
@@ -12,10 +13,59 @@
         android:id="@+id/events_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center_horizontal"
         android:text="@string/upcoming_events"
+        android:textColor="@color/brown"
         android:textSize="30sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="If you'd like to see upcoming events sign in with one of the options below" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/round_corner"
+        android:backgroundTint="#8FBC8F"
+        android:text="Sign in" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="309dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/round_corner"
+        android:backgroundTint="#5F9EA0"
+        android:text="Sign in" />
+
+    <ImageView
+        android:id="@+id/googleLogo"
+        android:layout_width="53dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="245dp"
+       android:layout_marginLeft="100dp"
+        android:src="@drawable/google" />
+
+    <ImageView
+        android:id="@+id/facebookLogo"
+        android:layout_width="53dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="300dp"
+        android:src="@drawable/facebook" />
 
 </FrameLayout>
