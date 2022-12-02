@@ -41,30 +41,30 @@ public class PreSignUp extends AppCompatActivity implements View.OnClickListener
 
         okButton.setOnClickListener(this);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("ExistingUsers");
-        userID = user.getUid();
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        reference = FirebaseDatabase.getInstance().getReference("ExistingUsers");
+//        userID = user.getUid();
 
         // this will display the user's name in the main logged in screen
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Users userProfile = snapshot.getValue(Users.class);
-
-                if (userProfile != null) {
-                    String firstName = userProfile.firstName;
-//                    String message = ;
-
-//                    + "!\n"
-
-//                    text.setText("Thank you for signing up. \nPlease take a few minutes to answer the following questionnaire.");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PreSignUp.this, "Something wrong happened!", Toast.LENGTH_LONG).show();
-            }
-        });
+//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Users userProfile = snapshot.getValue(Users.class);
+//
+//                if (userProfile != null) {
+//                    String firstName = userProfile.firstName;
+////                    String message = ;
+//
+////                    + "!\n"
+//
+////                    text.setText("Thank you for signing up. \nPlease take a few minutes to answer the following questionnaire.");
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(PreSignUp.this, "Something wrong happened!", Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     @Override

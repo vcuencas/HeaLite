@@ -9,7 +9,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.api.services.youtube.model.SearchResult;
+//import com.google.api.services.youtube.model.SearchResult;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class YoutubeActivity extends YouTubeBaseActivity {
     Button btn;
     YouTubePlayerView youTubePlayerView;
     YouTubePlayer.OnInitializedListener onInitializedListener;
-    Search search;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
