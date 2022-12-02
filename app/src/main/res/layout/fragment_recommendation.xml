@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@drawable/background17"
     tools:context=".RecommendationFragment">
 
     <include layout="@layout/toolbar" />
@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/recommendations"
+        android:textColor="@color/brown"
         android:textSize="30sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 </FrameLayout>

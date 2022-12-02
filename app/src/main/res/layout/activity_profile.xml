@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/body_container"
+    android:background="@drawable/background15"
     tools:context=".ProfileActivity">
 
     <include layout="@layout/toolbar" />

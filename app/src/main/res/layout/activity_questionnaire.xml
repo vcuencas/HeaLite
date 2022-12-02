@@ -4,22 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "@color/white"
+    android:background= "@drawable/background13"
     tools:context=".QuestionnaireActivity">
-
-
-    <!--    <include-->
-    <!--        layout="@layout/toolbar"-->
-    <!--        tools:layout_editor_absoluteX="0dp"-->
-    <!--        tools:layout_editor_absoluteY="4dp" />-->
 
     <TextView
         android:id="@+id/Questionnaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         android:text="Questionnaire"
-        android:textColor="@color/black"
+        android:textColor="@color/brown"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,9 +69,8 @@
             android:id="@+id/Q1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="25dp"
             android:background="@color/white"
-
             android:onClick="radioButtonHandler"
             android:text="29-39" />
 
@@ -85,7 +78,7 @@
             android:id="@+id/Q1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="30dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="40-50" />
@@ -94,7 +87,7 @@
             android:id="@+id/Q1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="51-61" />
@@ -271,7 +264,7 @@
             android:id="@+id/Q5.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="60dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="No" />
@@ -280,7 +273,7 @@
             android:id="@+id/Q5.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="60dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="Sometimes" />
@@ -321,7 +314,7 @@
             android:id="@+id/Q6.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="10dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="Always" />
@@ -330,7 +323,7 @@
             android:id="@+id/Q6.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="35dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="Rarely" />
@@ -365,13 +358,13 @@
             android:layout_marginStart="30dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
-            android:text="Less than 5" />
+            android:text="<5" />
 
         <RadioButton
             android:id="@+id/Q7.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="45dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="5-7" />
@@ -380,19 +373,19 @@
             android:id="@+id/Q7.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="40dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="8-10" />
 
         <RadioButton
             android:id="@+id/Q7.4"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
-            android:text="10+" />
+            android:text="<10" />
     </RadioGroup>
 
     <TextView
@@ -419,18 +412,18 @@
 
         <RadioButton
             android:id="@+id/Q8.1"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="Yes" />
 
         <RadioButton
             android:id="@+id/Q8.2"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="40dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="No" />
@@ -466,11 +459,7 @@
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="More peacefulness"
-            android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.066"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="10dp"/>
 
         <RadioButton
             android:id="@+id/Q9.2"
@@ -479,11 +468,7 @@
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="More productivity"
-            android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.396"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="10dp"/>
 
         <RadioButton
             android:id="@+id/Q9.3"
@@ -492,11 +477,7 @@
             android:background="@color/white"
             android:onClick="radioButtonHandler"
             android:text="More sleep"
-            android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.705"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="10dp"/>
 
         <RadioButton
             android:id="@+id/Q9.4"
@@ -504,12 +485,9 @@
             android:layout_height="31dp"
             android:background="@color/white"
             android:onClick="radioButtonHandler"
+            android:layout_marginStart="20dp"
             android:text="More energy"
-            android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.963"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="10dp"/>
     </RadioGroup>
 
     <TextView
@@ -554,7 +532,7 @@
         android:layout_width="88dp"
         android:layout_height="37dp"
         android:layout_marginTop="676dp"
-        android:backgroundTint="#808000"
+        android:backgroundTint="#64CDBC"
         android:onClick="submitButtonHandler"
         android:text="SUBMIT"
         app:layout_constraintEnd_toEndOf="parent"
