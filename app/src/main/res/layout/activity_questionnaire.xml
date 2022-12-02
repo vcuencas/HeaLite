@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "@color/teal_700"
+    android:background= "@color/white"
     tools:context=".QuestionnaireActivity">
 
 
@@ -40,209 +40,81 @@
 
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="88dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="676dp"
-        android:backgroundTint="#808000"
-        android:onClick="submitbuttonHandler"
-        android:text="SUBMIT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/Question1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
         android:text="1) What is your age?"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="84dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="18-28" />
+
+        <RadioButton
+            android:id="@+id/Q1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+
+            android:onClick="radioButtonHandler"
+            android:text="29-39" />
+
+        <RadioButton
+            android:id="@+id/Q1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="40-50" />
+
+        <RadioButton
+            android:id="@+id/Q1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="51-61" />
+
+    </RadioGroup>
 
     <TextView
         android:id="@+id/Question2"
         android:layout_width="156dp"
         android:layout_height="17dp"
         android:layout_marginTop="116dp"
+        android:layout_marginStart="20dp"
         android:text="2) What is your gender?"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:text="3) How would you rate your mental health?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:text="4) How satisfied are you with your fitness activity?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.722"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
-        android:text="5) Do you feel satisfied with your relationships and family?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="364dp"
-        android:text="6) Do you feel well-rested after waking up?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/Question7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="424dp"
-        android:text="7) How many hours do you sleep per night?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:text="8) Are you going through tough times?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/Question9"
-        android:layout_width="388dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="528dp"
-        android:text="9) What single change would you like to have to improve your life right now?"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Question10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="608dp"
-        android:text="10) Tell us what you’re interested in (choose from)"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q1.1"
-        android:layout_width="71dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="84dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="18-28"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioButton
-        android:id="@+id/Q1.2"
-        android:layout_width="71dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="84dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="29-39"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q1.3"
-        android:layout_width="71dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="84dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="40-50"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q1.4"
-        android:layout_width="71dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="84dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="51-61"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroup2"
         android:layout_width="204dp"
         android:layout_height="29dp"
         android:layout_marginTop="140dp"
@@ -258,8 +130,7 @@
             android:layout_width="45dp"
             android:layout_height="33dp"
             android:background="@color/white"
-            android:backgroundTint="#666699"
-            android:onClick="radioButtonhandler"
+            android:onClick="radioButtonHandler"
             android:text="M"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -270,8 +141,7 @@
             android:layout_width="45dp"
             android:layout_height="33dp"
             android:background="@color/white"
-            android:backgroundTint="#666699"
-            android:onClick="radioButtonhandler"
+            android:onClick="radioButtonHandler"
             android:text="F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.655"
@@ -283,8 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="33dp"
             android:background="@color/white"
-            android:backgroundTint="#666699"
-            android:onClick="radioButtonhandler"
+            android:onClick="radioButtonHandler"
             android:text="Other"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.949"
@@ -292,290 +161,366 @@
             app:layout_constraintTop_toTopOf="parent" />
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/Question3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="20dp"
+        android:text="3) How would you rate your mental health?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SeekBar
         android:id="@+id/MentalHealthRate"
-        android:layout_width="263dp"
+        android:layout_width="350dp"
         android:layout_height="22dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="212dp"
         android:background="@color/white"
-        android:backgroundTint="#666699"
+        android:orientation="horizontal"
+        android:max="5"
+        android:min="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Question4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:layout_marginStart="20dp"
+        android:text="4) How satisfied are you with your fitness activity?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup4"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="264dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q4.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Completely" />
+
+        <RadioButton
+            android:id="@+id/Q4.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Moderately" />
+
+        <RadioButton
+            android:id="@+id/Q4.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Not at all" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:layout_marginStart="20dp"
+        android:text="5) Do you feel satisfied with your relationships and family?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <RadioButton
-        android:id="@+id/Q4.1"
-        android:layout_width="110dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="264dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Completely"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q4.2"
-        android:layout_width="110dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="264dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Moderately"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q4.3"
-        android:layout_width="110dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="264dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Not at all"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q5.1"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
+    <RadioGroup
+        android:id="@+id/radioGroup5"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
         android:layout_marginTop="332dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Yes"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q5.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Yes" />
+
+        <RadioButton
+            android:id="@+id/Q5.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="No" />
+
+        <RadioButton
+            android:id="@+id/Q5.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Sometimes" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="364dp"
+        android:layout_marginStart="20dp"
+        android:text="6) Do you feel well-rested after waking up?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q5.2"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="332dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="No"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q5.3"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="332dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Sometimes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioButton
-        android:id="@+id/Q6.1"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
+    <RadioGroup
+        android:id="@+id/radioGroup6"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
         android:layout_marginTop="388dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Sometimes"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q6.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Sometimes" />
+
+        <RadioButton
+            android:id="@+id/Q6.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Always" />
+
+        <RadioButton
+            android:id="@+id/Q6.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Rarely" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="424dp"
+        android:layout_marginStart="20dp"
+        android:text="7) How many hours do you sleep per night?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q6.2"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="388dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Always"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q6.3"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="388dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Rarely"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioButton
-        android:id="@+id/Q7.1"
-        android:layout_width="109dp"
-        android:layout_height="27dp"
+    <RadioGroup
+        android:id="@+id/radioGroup7"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
         android:layout_marginTop="452dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Less than 5"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q7.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Less than 5" />
+
+        <RadioButton
+            android:id="@+id/Q7.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="5-7" />
+
+        <RadioButton
+            android:id="@+id/Q7.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="8-10" />
+
+        <RadioButton
+            android:id="@+id/Q7.4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="10+" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:layout_marginStart="20dp"
+        android:text="8) Are you going through tough times?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q7.2"
-        android:layout_width="67dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="452dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="5-7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q7.3"
-        android:layout_width="67dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="452dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="8-10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q7.4"
-        android:layout_width="61dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="452dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="10+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/Q8.1"
-        android:layout_width="61dp"
-        android:layout_height="23dp"
+    <RadioGroup
+        android:id="@+id/radioGroup8"
+        android:layout_width="fill_parent"
+        android:layout_height="24dp"
         android:layout_marginTop="508dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="Yes"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Q8.1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="Yes" />
+
+        <RadioButton
+            android:id="@+id/Q8.2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="No" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question9"
+        android:layout_width="388dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="528dp"
+        android:layout_marginStart="20dp"
+        android:text="9) What single change would you like to have to improve your life right now?"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q8.2"
-        android:layout_width="61dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="508dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="No"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.582"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioButton
-        android:id="@+id/Q9.1"
-        android:layout_width="93dp"
+    <RadioGroup
+        android:id="@+id/radioGroup9"
+        android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:layout_marginTop="572dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="More peacefulness"
-        android:textSize="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RadioButton
-        android:id="@+id/Q9.2"
-        android:layout_width="88dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="572dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="More productivity"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RadioButton
+            android:id="@+id/Q9.1"
+            android:layout_width="93dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="More peacefulness"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.066"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q9.3"
-        android:layout_width="71dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="572dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="More sleep"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RadioButton
+            android:id="@+id/Q9.2"
+            android:layout_width="88dp"
+            android:layout_height="31dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="More productivity"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.396"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/Q9.4"
-        android:layout_width="71dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="572dp"
-        android:background="@color/white"
-        android:backgroundTint="#666699"
-        android:onClick="radioButtonhandler"
-        android:text="More energy"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
+        <RadioButton
+            android:id="@+id/Q9.3"
+            android:layout_width="71dp"
+            android:layout_height="31dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="More sleep"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.705"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/Q9.4"
+            android:layout_width="71dp"
+            android:layout_height="31dp"
+            android:background="@color/white"
+            android:onClick="radioButtonHandler"
+            android:text="More energy"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.963"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Question10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="608dp"
+        android:layout_marginStart="20dp"
+        android:text="10) Tell us what you’re interested in (choose from)"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -585,7 +530,6 @@
         android:layout_height="29dp"
         android:layout_marginTop="636dp"
         android:background="@color/white"
-        android:backgroundTint="#666699"
         android:text="Self-love"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -598,11 +542,23 @@
         android:layout_height="28dp"
         android:layout_marginTop="636dp"
         android:background="@color/white"
-        android:backgroundTint="#666699"
         android:text="Detox bad habits"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="88dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="676dp"
+        android:backgroundTint="#808000"
+        android:onClick="submitButtonHandler"
+        android:text="SUBMIT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

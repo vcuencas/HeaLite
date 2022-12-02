@@ -22,4 +22,5 @@
     <string name="ok">OK</string>
     <string name="fillQuestionnaire">Please take a few moments to fill out the following questionnaire.</string>
     <string name="continueBtn">Continue</string>
+    <string name="Questionnaire">Questionnaire</string>
 </resources>
