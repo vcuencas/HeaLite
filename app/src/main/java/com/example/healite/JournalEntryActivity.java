@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Logger;
 
 public class JournalEntryActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -114,7 +116,8 @@ public class JournalEntryActivity extends AppCompatActivity implements View.OnCl
             simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
             dateString = simpleDateFormat.format(calendar.getTime());
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Log.e("Error", "SimpleDateFormat did not work");
         }
 
         // create Journal Entry object
